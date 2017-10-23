@@ -41,8 +41,8 @@ def _get_primary_measures(predicted_data, target_column, positive_label, top_per
         predicted_data_at_top_of_sample[predicted_data_at_top_of_sample[target_column] == positive_label].shape[0]  # tp+fn
     neg_at_top_sample = \
         predicted_data_at_top_of_sample[predicted_data_at_top_of_sample[target_column] != positive_label].shape[0]  # tp+fn
-    pos_at_all_sample = predicted_data_ranked[predicted_data_ranked[target_column] == positive_label]
-    neg_at_all_sample = predicted_data_ranked[predicted_data_ranked[target_column] != positive_label]
+    pos_at_all_sample = predicted_data_ranked[predicted_data_ranked[target_column] == positive_label].shape[0]
+    neg_at_all_sample = predicted_data_ranked[predicted_data_ranked[target_column] != positive_label].shape[0]
     # tpr = pos_at_top_sample / pos_at_all_sample
     # fpr = neg_at_top_sample / neg_at_all_sample
     pos_sampling_factor = (population_ratio / 100) * population_size / pos_at_all_sample
